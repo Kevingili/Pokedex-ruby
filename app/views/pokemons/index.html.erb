@@ -28,17 +28,23 @@
         </td>
 
         <td>
-          <%= link_to 'Afficher', pokemon, class: 'btn btn-info' %>
+          <% if user_signed_in? %>
+            <%= link_to 'Afficher', pokemon, class: 'btn btn-info' %>
+          <% end %>
         </td>
         <td>
-          <%= link_to 'Modifier', edit_pokemon_path(pokemon), class: 'btn btn-warning' %>
+          <% if user_signed_in? %>
+            <%= link_to 'Modifier', edit_pokemon_path(pokemon), class: 'btn btn-warning' %>
+          <% end %>
         </td>
         <td>
-          <%= link_to 'Supprimer', pokemon, method: :delete,
+          <% if user_signed_in? %>
+            <%= link_to 'Supprimer', pokemon, method: :delete,
                       data: {
                           confirm: 'Êtes-vous sûr(e) de vouloir supprimer ce Pokemon ?'
                       },
                       class: 'btn btn-danger' %>
+          <% end %>
         </td>
       </tr>
     <% end %>
