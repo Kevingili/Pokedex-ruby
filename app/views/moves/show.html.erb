@@ -1,0 +1,25 @@
+<!-- <p id="notice"><%= notice %></p> -->
+
+<h2>Affichage d'une attaque</h2>
+
+<p>
+  <strong>Name:</strong>
+  <%= @move.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @move.description %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <% if @move.type.nil? %>
+  Non défini
+  <% else %>
+  <%= type_badge @move.type.name, @move.type.color %>
+  <% end %>
+</p>
+
+<%= link_to 'Modifier', edit_move_path(@move), class: 'btn btn-warning' %> |
+<%= link_to 'Retour', moves_path, class: 'btn btn-default' %>
