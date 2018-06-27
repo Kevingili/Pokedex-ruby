@@ -69,3 +69,7 @@ gem 'simple_form'
 #Devise
 gem 'devise'
 gem 'devise-i18n'
+
+#Permission
+gem 'cancancan'
+gem 'rolify'

@@ -21,11 +21,19 @@
       <%= link_to 'Attaques', moves_path, class: 'btn btn-default' %>
 
       <% if user_signed_in? %>
-        Connecté en tant que <%= current_user.email %> - <%= link_to 'Déconnexion', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
+        Connecté en tant que <%= link_to current_user.username, edit_user_registration_path %> - <%= link_to 'Déconnexion', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
       <% else %>
         <%= link_to 'connexion', new_user_session_path, class: 'btn btn-default' %>
       <% end %>
     </p>
+
+    <% flash.each do | name, msg| %>
+      <div class="alert alert-<%= name %>">
+        <a class="close" data-dismiss="alert">x</a>
+        <%= content_tag :div, msg, id: "flash_#{name}" %>      
+      </div>
+    <% end %>
+
     <br>
     <%= yield %>
   </div>

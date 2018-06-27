@@ -1,6 +1,7 @@
 class PokemonsController < ApplicationController
   before_action :set_pokemon, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[new edit create destroy update]
+  authorize_resource
 
   def index
     @pokemons = Pokemon.includes(:type, moves: :type)
@@ -19,6 +20,7 @@ class PokemonsController < ApplicationController
   def create
     @pokemon = Pokemon.new(pokemon_params)
     if @pokemon.save
+      flash[:success] = "Le pokemon #{@pokemon.name} a bien été ajouté."
       redirect_to @pokemon
     else
       render 'new'
@@ -28,6 +30,7 @@ class PokemonsController < ApplicationController
   def update
     @pokemon = Pokemon.find(params[:id])
     if @pokemon.update(pokemon_params)
+      flash[:success] = "Le pokemon #{@pokemon.name} a bien été modifié."
       redirect_to @pokemon
     else
       render 'edit'

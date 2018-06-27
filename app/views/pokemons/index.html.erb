@@ -33,12 +33,12 @@
           <% end %>
         </td>
         <td>
-          <% if user_signed_in? %>
+          <% if can? :update, pokemon %>
             <%= link_to 'Modifier', edit_pokemon_path(pokemon), class: 'btn btn-warning' %>
           <% end %>
         </td>
         <td>
-          <% if user_signed_in? %>
+          <% if can? :destroy, pokemon %>
             <%= link_to 'Supprimer', pokemon, method: :delete,
                       data: {
                           confirm: 'Êtes-vous sûr(e) de vouloir supprimer ce Pokemon ?'
@@ -55,6 +55,8 @@
   <p>Vous n'avez pas attrapé de Pokemon :(</p>
 <% end %>
 
+<% if can? :create, Pokemon %>
 <p>
   <%= link_to 'Ajouter un pokemon', new_pokemon_path, class: 'btn btn-success' %>
 </p>
+<% end %>
