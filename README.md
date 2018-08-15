@@ -4,13 +4,19 @@
 
 Things you can do:
 
-* Show pokemons
+* Show, create, edit, delete pokemons
 
-* Create pokemons
+* Show, create, edit, delete types
 
-* Edit pokemons
+* Show, create, edit, delete moves
 
-* Delete pokemons
+## Demo
+
+You can try the live demo : [https://still-fjord-17773.herokuapp.com](https://still-fjord-17773.herokuapp.com)
+
+## Demo login info
+
+user: test@test.fr | password: 123456
 
 ## How to use this application
 
